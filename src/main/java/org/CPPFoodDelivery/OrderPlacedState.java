@@ -2,22 +2,22 @@ package org.CPPFoodDelivery;
 
 public class OrderPlacedState implements OrderState{
     @Override
-    public String getOrderStatus() {
-        return null;
+    public void getOrderStatus(Order order) {
+        System.out.println("Order is being prepared");
     }
 
     @Override
-    public void makeOrder() {
+    public void makeOrder(Order order) {
+        order.setState(new OrderMadeState());
+    }
+
+    @Override
+    public void pickupOrder(Order order) {
 
     }
 
     @Override
-    public void pickupOrder() {
-
-    }
-
-    @Override
-    public void deliverOrder() {
+    public void deliverOrder(Order order) {
 
     }
 }

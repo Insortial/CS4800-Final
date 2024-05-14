@@ -16,6 +16,7 @@ public class Order {
     public Order(Restaurant restaurant, Customer customer, Meal meal, Driver driver) {
         this.restaurant = restaurant;
         this.customer = customer;
+        this.state = new OrderPlacedState();
         this.meal = meal;
         this.driver = driver;
         this.orderCreationTime = LocalDateTime.now();
@@ -39,6 +40,10 @@ public class Order {
         return meal;
     }
 
+    public OrderState getState() {
+        return state;
+    }
+
     public Driver getDriver() {
         return driver;
     }
@@ -59,6 +64,20 @@ public class Order {
         this.state = state;
     }
 
+    public void getOrderStatus() {
+        state.getOrderStatus(this);
+    }
 
+    public void makeOrder() {
+        state.makeOrder(this);
+    }
+
+    public void pickupOrder() {
+        state.pickupOrder(this);
+    }
+
+    public void deliverOrder() {
+        state.deliverOrder(this);
+    }
 
 }

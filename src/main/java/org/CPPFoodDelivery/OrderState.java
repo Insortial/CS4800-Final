@@ -1,10 +1,10 @@
 package org.CPPFoodDelivery;
 
 public interface OrderState {
-    String getOrderStatus();
-    void pickupOrder();
-    void makeOrder();
-    void deliverOrder();
+    void getOrderStatus(Order order);
+    void pickupOrder(Order order);
+    void makeOrder(Order order);
+    void deliverOrder(Order order);
 
 
 }
