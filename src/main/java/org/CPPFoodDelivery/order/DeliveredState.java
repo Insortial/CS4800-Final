@@ -5,6 +5,10 @@ import org.CPPFoodDelivery.order.OrderState;
 import org.CPPFoodDelivery.user.Driver;
 
 public class DeliveredState implements OrderState {
+    private static DeliveredState instance;
+
+    private DeliveredState() { }
+
     @Override
     public void getOrderStatus(Order order) {
         System.out.println("Order has been delivered");
@@ -28,5 +32,12 @@ public class DeliveredState implements OrderState {
     @Override
     public void deliverOrder(Order order) {
         throw new IllegalStateException("Cannot deliver order again");
+    }
+
+    public static DeliveredState getInstance() {
+        if (instance == null) {
+            instance = new DeliveredState();
+        }
+        return instance;
     }
 }

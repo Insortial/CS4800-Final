@@ -2,7 +2,11 @@ package org.CPPFoodDelivery.order;
 
 import org.CPPFoodDelivery.user.Driver;
 
-public class PickedUpState implements OrderState{
+public class PickedUpState implements OrderState {
+    private static PickedUpState instance;
+
+    private PickedUpState() { }
+
     @Override
     public void getOrderStatus(Order order) {
         System.out.println("Order has been picked up");
@@ -25,8 +29,15 @@ public class PickedUpState implements OrderState{
 
     @Override
     public void deliverOrder(Order order) {
-        order.setState(new DeliveredState());
+        order.setState(DeliveredState.getInstance());
 
         order.getCustomer().receiveOrder(order);
+    }
+
+    public static PickedUpState getInstance() {
+        if (instance == null) {
+            instance = new PickedUpState();
+        }
+        return instance;
     }
 }

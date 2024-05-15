@@ -3,6 +3,10 @@ package org.CPPFoodDelivery.order;
 import org.CPPFoodDelivery.user.Driver;
 
 public class OrderCreatedState implements OrderState {
+    private static OrderCreatedState instance;
+
+    private OrderCreatedState() { }
+
     @Override
     public void getOrderStatus(Order order) {
         System.out.println("Order has been created");
@@ -10,7 +14,7 @@ public class OrderCreatedState implements OrderState {
 
     @Override
     public void placeOrder(Order order, Driver assignedDriver) {
-        order.setState(new OrderPlacedState());
+        order.setState(OrderPlacedState.getInstance());
 
         order.assignDriver(assignedDriver);
         assignedDriver.assignOrder(order);
@@ -30,5 +34,12 @@ public class OrderCreatedState implements OrderState {
     @Override
     public void deliverOrder(Order order) {
         throw new IllegalStateException("Cannot deliver order that is not placed");
+    }
+
+    public static OrderCreatedState getInstance() {
+        if (instance == null) {
+            instance = new OrderCreatedState();
+        }
+        return instance;
     }
 }

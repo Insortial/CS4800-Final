@@ -21,7 +21,7 @@ public class Order {
     public Order(Restaurant restaurant, Customer customer, List<Meal> meals) {
         this.restaurant = restaurant;
         this.customer = customer;
-        this.state = new OrderCreatedState();
+        this.state = OrderCreatedState.getInstance();
         this.meals = meals;
         this.orderCreationTime = LocalDateTime.now();
     }
