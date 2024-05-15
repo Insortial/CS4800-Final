@@ -1,4 +1,6 @@
-package org.CPPFoodDelivery;
+package org.CPPFoodDelivery.user;
+
+import org.CPPFoodDelivery.server.Server;
 
 public abstract class User {
     private Server registeredServer;
@@ -22,6 +24,10 @@ public abstract class User {
 
     public String getCounty() {
         return county;
+    }
+
+    public Server getRegisteredServer() {
+        return registeredServer;
     }
 
     public void registerToServer(Server server) {
