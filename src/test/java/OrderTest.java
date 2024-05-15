@@ -18,14 +18,13 @@ public class OrderTest {
         Server testServer = new Server();
         Customer testCustomer = new Customer("TestCustomer", "123 Main St, Los Angeles, CA", "Los Angeles", DietRestriction.PALEO);
         Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalDateTime.now(), LocalDateTime.now(), "Cuisine");
-        Meal testMeal = new Meal();
         Driver testDriver = new Driver("TestDriver", "323 Straight St, Los Angeles, CA", "Los Angeles");
 
         testCustomer.registerToServer(testServer);
         testRestaurant.registerToServer(testServer);
         testDriver.registerToServer(testServer);
 
-        Order testOrder = new Order(testRestaurant, testCustomer, List.of(testMeal));
+        Order testOrder = new Order(testRestaurant, testCustomer, List.of());
 
         testCustomer.placeOrder(testOrder);
         OrderState orderState1 = testOrder.getState();
