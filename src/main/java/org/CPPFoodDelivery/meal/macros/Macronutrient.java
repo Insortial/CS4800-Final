@@ -18,6 +18,7 @@ public abstract class Macronutrient {
     }
 
     public boolean isDietAllowed(DietRestriction dietRestriction) {
-        return allowedDiets.contains(dietRestriction);
+        return dietRestriction.equals(DietRestriction.NO_RESTRICTION)
+                || allowedDiets.contains(dietRestriction);
     }
 }
