@@ -1,5 +1,6 @@
 import org.CPPFoodDelivery.meal.DietRestriction;
 import org.CPPFoodDelivery.meal.Meal;
+import org.CPPFoodDelivery.meal.macros.carb.Carb;
 import org.CPPFoodDelivery.order.*;
 import org.CPPFoodDelivery.server.Server;
 import org.CPPFoodDelivery.user.Customer;
@@ -9,8 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class OrderTest {
     @Test
@@ -23,7 +23,7 @@ public class OrderTest {
         testCustomer.registerToServer(testServer);
         testRestaurant.registerToServer(testServer);
         testDriver.registerToServer(testServer);
-
+        
         Order testOrder = new Order(testRestaurant, testCustomer, List.of());
 
         testCustomer.placeOrder(testOrder);
@@ -47,6 +47,13 @@ public class OrderTest {
         Assertions.assertTrue(orderState2 instanceof OrderMadeState);
         Assertions.assertTrue(orderState3 instanceof PickedUpState);
         Assertions.assertTrue(orderState4 instanceof DeliveredState);
+    }
+
+    @Test
+    public void testMealAndToppings() {
+        List<Meal> testListOfMeals =  new ArrayList<>();
+        Set<DietRestriction> dietRestrictions = new HashSet<>();
+        dietRestrictions.add(DietRestriction.NO_RESTRICTION);
     }
 
 

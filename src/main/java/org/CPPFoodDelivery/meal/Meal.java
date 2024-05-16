@@ -15,6 +15,23 @@ public class Meal implements Cloneable {
         this.protein = protein;
     }
 
+    public String toString() {
+        String mealName = carb.getMacroName() + ", " + fat.getMacroName() + ", and " + protein.getMacroName() + "\nToppings: ";
+        return mealName;
+    }
+
+    public Carb getCarb() {
+        return carb;
+    }
+
+    public Fat getFat() {
+        return fat;
+    }
+
+    public Protein getProtein() {
+        return protein;
+    }
+
     public boolean isCarbAllowedByDiet(DietRestriction dietRestriction) {
         return carb.isDietAllowed(dietRestriction);
     }
