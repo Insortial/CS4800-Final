@@ -20,14 +20,14 @@ public class Restaurant extends User {
     private List<Order> ordersReadyForPickup;
 
     public Restaurant(String name, String address, String county, LocalDateTime operatingHoursStart,
-                      LocalDateTime operatingHoursEnd, String cuisineType) {
+                      LocalDateTime operatingHoursEnd, String cuisineType, List<Meal> meals, List<String> toppingNames) {
         super(name, address, county);
         this.operatingHoursStart = operatingHoursStart;
         this.operatingHoursEnd = operatingHoursEnd;
         this.cuisineType = cuisineType;
-        this.toppingNames = new ArrayList<>();
+        this.toppingNames = toppingNames;
         this.orders = new LinkedList<>();
-        this.meals = new ArrayList<>();
+        this.meals = meals;
         this.ordersReadyForPickup = new ArrayList<>();
     }
 
@@ -51,18 +51,6 @@ public class Restaurant extends User {
 
         ordersReadyForPickup.remove(order);
         System.out.println("Message to Restaurant: Order has been picked up by the driver");
-    }
-
-    public void addAvailableTopping(String toppingName) {
-        if (toppingNames.size() >= 3)
-            throw new IllegalStateException("Cannot have more than 3 toppings on menu");
-        toppingNames.add(toppingName);
-    }
-
-    public void addAvailableMeal(Meal meal) {
-        if (meals.size() >= 4)
-            throw new IllegalStateException("Cannot have more than 4 meals on menu");
-        meals.add(meal);
     }
 
     @Override
