@@ -15,7 +15,7 @@ public class ToppingTest {
 
     @Test
     public void canDecorateMeal() {
-        Meal meal = new MealWithTopping(this.meal, "Cheese");
-        assertEquals("Bread, Avocado, and Beef\nToppings: Cheese", meal.toString().trim());
+        Meal mealWithTopping = new MealWithTopping(meal, "Cheese");
+        assertEquals("Bread, Avocado, and Beef\nToppings: Cheese", mealWithTopping.toString().trim());
     }
 }
