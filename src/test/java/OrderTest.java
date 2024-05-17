@@ -44,18 +44,10 @@ public class OrderTest {
         OrderState orderState4 = testOrder.getState();
 
 
-        Assertions.assertTrue(orderState1 instanceof OrderPlacedState);
-        Assertions.assertTrue(orderState2 instanceof OrderMadeState);
-        Assertions.assertTrue(orderState3 instanceof PickedUpState);
-        Assertions.assertTrue(orderState4 instanceof DeliveredState);
+        Assertions.assertInstanceOf(OrderPlacedState.class, orderState1);
+        Assertions.assertInstanceOf(OrderMadeState.class, orderState2);
+        Assertions.assertInstanceOf(PickedUpState.class, orderState3);
+        Assertions.assertInstanceOf(DeliveredState.class, orderState4);
     }
-
-    @Test
-    public void testMealAndToppings() {
-        List<Meal> testListOfMeals =  new ArrayList<>();
-        Set<DietRestriction> dietRestrictions = new HashSet<>();
-        dietRestrictions.add(DietRestriction.NO_RESTRICTION);
-    }
-
 
 }
