@@ -17,7 +17,7 @@ public class OrderTest {
     public void testGetOrderStatus() {
         Server testServer = new Server();
         Customer testCustomer = new Customer("TestCustomer", "123 Main St, Los Angeles, CA", "Los Angeles", DietRestriction.PALEO);
-        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalDateTime.now(), LocalDateTime.now(), "Cuisine");
+        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalDateTime.now(), LocalDateTime.now(), "Cuisine", new ArrayList<>(), new ArrayList<>());
         Driver testDriver = new Driver("TestDriver", "323 Straight St, Los Angeles, CA", "Los Angeles");
 
         testCustomer.registerToServer(testServer);
