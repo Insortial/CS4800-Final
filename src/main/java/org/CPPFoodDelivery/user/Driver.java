@@ -16,7 +16,7 @@ public class Driver extends User {
     }
 
     public void notifyOrderMade(Order order) {
-        System.out.println("Message to Driver: Order has been made and is ready for pick up");
+        System.out.println("Message to Driver: Order has been made and is ready for pick up\nOrder: " + order.toString());
     }
 
     public void pickupOrder() {

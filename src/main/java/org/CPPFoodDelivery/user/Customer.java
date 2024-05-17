@@ -17,15 +17,15 @@ public class Customer extends User {
     }
 
     public void notifyOrderMade(Order order) {
-        System.out.println("Message to Customer: Order has been made by the restaurant");
+        System.out.println("Message to Customer: Order has been made by the restaurant\nOrder: " + order.toString());
     }
 
     public void notifyOrderPickedUp(Order order) {
-        System.out.println("Message to Customer: Order has been picked up by the driver");
+        System.out.println("Message to Customer: Order has been picked up by the driver\nOrder: " + order.toString());
     }
 
     public void receiveOrder(Order order) {
-        System.out.println("Message to Customer: Order has been delivered");
+        System.out.println("Message to Customer: Order has been delivered\nOrder: " + order.toString());
     }
 
     public DietRestriction getDietaryRestriction() {

@@ -88,4 +88,9 @@ public class Order {
     public void assignDriver(Driver assignedDriver) {
         this.driver = assignedDriver;
     }
+
+    @Override
+    public String toString() {
+        return "Order at " + restaurant.getName() + " for " + meals.size() + " meals";
+    }
 }

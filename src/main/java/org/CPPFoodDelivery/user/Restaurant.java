@@ -36,7 +36,7 @@ public class Restaurant extends User {
             throw new IllegalStateException("Cannot place order out of operating hours");
         }
         orders.add(order);
-        System.out.println("Message to Restaurant: Order has been placed by the customer");
+        System.out.println("Message to Restaurant: Order has been placed by the customer\nOrder: " + order.toString());
     }
 
     private boolean isNotInOperatingHours(LocalTime orderCreationTime) {
@@ -57,7 +57,7 @@ public class Restaurant extends User {
             throw new IllegalStateException("Cannot pickup non-existing order");
 
         ordersReadyForPickup.remove(order);
-        System.out.println("Message to Restaurant: Order has been picked up by the driver");
+        System.out.println("Message to Restaurant: Order has been picked up by the driver\nOrder: " + order.toString());
     }
 
     @Override
