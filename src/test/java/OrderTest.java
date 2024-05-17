@@ -1,5 +1,6 @@
 import org.CPPFoodDelivery.meal.DietRestriction;
 import org.CPPFoodDelivery.meal.Meal;
+import org.CPPFoodDelivery.meal.MealFactory;
 import org.CPPFoodDelivery.meal.macros.carb.Carb;
 import org.CPPFoodDelivery.order.*;
 import org.CPPFoodDelivery.server.Server;
@@ -23,7 +24,7 @@ public class OrderTest {
         testCustomer.registerToServer(testServer);
         testRestaurant.registerToServer(testServer);
         testDriver.registerToServer(testServer);
-        
+
         Order testOrder = new Order(testRestaurant, testCustomer, List.of());
 
         testCustomer.placeOrder(testOrder);
@@ -51,9 +52,11 @@ public class OrderTest {
 
     @Test
     public void testMealAndToppings() {
+        MealFactory.createMeal("Bread", "Butter", "Sausage");
         List<Meal> testListOfMeals =  new ArrayList<>();
         Set<DietRestriction> dietRestrictions = new HashSet<>();
         dietRestrictions.add(DietRestriction.NO_RESTRICTION);
+
     }
 
 
