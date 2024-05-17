@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Random;
 
 public class CarbFactory {
-    private static final List<Carb> CARBS = List.of();
+    private static final List<Carb> CARBS = List.of(
+            new Bread(),
+            new Cheese(),
+            new Lentils(),
+            new Pistachio()
+    );
 
     public static Carb createRandomCarb() {
         if (CARBS.isEmpty()) return null;

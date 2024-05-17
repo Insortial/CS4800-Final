@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Random;
 
 public class FatFactory {
-    private static final List<Fat> FATS = List.of();
+    private static final List<Fat> FATS = List.of(
+            new Avocado(),
+            new Peanuts(),
+            new SourCream(),
+            new Tuna()
+    );
 
     public static Fat createRandomFat() {
         if (FATS.isEmpty()) return null;

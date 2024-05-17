@@ -6,7 +6,12 @@ import java.util.List;
 import java.util.Random;
 
 public class ProteinFactory {
-    private static final List<Protein> PROTEINS = List.of();
+    private static final List<Protein> PROTEINS = List.of(
+            new Beef(),
+            new Chicken(),
+            new Fish(),
+            new Tofu()
+    );
 
     public static Protein createRandomProtein() {
         if (PROTEINS.isEmpty()) return null;
