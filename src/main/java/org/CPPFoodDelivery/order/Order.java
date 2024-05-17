@@ -6,6 +6,7 @@ import org.CPPFoodDelivery.user.Driver;
 import org.CPPFoodDelivery.user.Restaurant;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class Order {
@@ -14,16 +15,16 @@ public class Order {
     private Customer customer;
     private List<Meal> meals;
     private Driver driver;
-    private LocalDateTime orderCreationTime;
-    private LocalDateTime orderPickupTime;
-    private LocalDateTime deliveredTime;
+    private LocalTime orderCreationTime;
+    private LocalTime orderPickupTime;
+    private LocalTime deliveredTime;
 
     public Order(Restaurant restaurant, Customer customer, List<Meal> meals) {
         this.restaurant = restaurant;
         this.customer = customer;
         this.state = OrderCreatedState.getInstance();
         this.meals = meals;
-        this.orderCreationTime = LocalDateTime.now();
+        this.orderCreationTime = LocalTime.now();
     }
 
     public Restaurant getRestaurant() {
@@ -46,15 +47,15 @@ public class Order {
         return driver;
     }
 
-    public LocalDateTime getOrderCreationTime() {
+    public LocalTime getOrderCreationTime() {
         return orderCreationTime;
     }
 
-    public LocalDateTime getOrderPickupTime() {
+    public LocalTime getOrderPickupTime() {
         return orderPickupTime;
     }
 
-    public LocalDateTime getDeliveredTime() {
+    public LocalTime getDeliveredTime() {
         return deliveredTime;
     }
 
@@ -76,12 +77,12 @@ public class Order {
 
     public void pickupOrder() {
         state.pickupOrder(this);
-        orderPickupTime = LocalDateTime.now();
+        orderPickupTime = LocalTime.now();
     }
 
     public void deliverOrder() {
         state.deliverOrder(this);
-        deliveredTime = LocalDateTime.now();
+        deliveredTime = LocalTime.now();
     }
 
     public void assignDriver(Driver assignedDriver) {

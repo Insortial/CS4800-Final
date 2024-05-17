@@ -15,8 +15,10 @@ public class OrderTest {
     @Test
     public void testGetOrderStatus() {
         Server testServer = new Server();
+        testServer.addServiceableCounty("Los Angeles", LocalTime.of(0, 0), LocalTime.of(23, 59));
+
         Customer testCustomer = new Customer("TestCustomer", "123 Main St, Los Angeles, CA", "Los Angeles", DietRestriction.PALEO);
-        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalTime.now(), LocalTime.now(), "Cuisine", new ArrayList<>(), new ArrayList<>());
+        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalTime.of(0, 0), LocalTime.of(23, 59), "Cuisine", new ArrayList<>(), new ArrayList<>());
         Driver testDriver = new Driver("TestDriver", "323 Straight St, Los Angeles, CA", "Los Angeles");
 
         testCustomer.registerToServer(testServer);

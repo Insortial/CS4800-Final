@@ -32,8 +32,15 @@ public class Restaurant extends User {
     }
 
     public void placeOrder(Order order) {
+        if (isNotInOperatingHours(order.getOrderCreationTime())) {
+            throw new IllegalStateException("Cannot place order out of operating hours");
+        }
         orders.add(order);
         System.out.println("Message to Restaurant: Order has been placed by the customer");
+    }
+
+    private boolean isNotInOperatingHours(LocalTime orderCreationTime) {
+        return orderCreationTime.isAfter(operatingHoursEnd) || orderCreationTime.isBefore(operatingHoursStart);
     }
 
     public void makeOrder() {

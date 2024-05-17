@@ -5,6 +5,7 @@ import org.CPPFoodDelivery.user.Customer;
 import org.CPPFoodDelivery.user.Driver;
 import org.CPPFoodDelivery.user.Restaurant;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,11 +15,18 @@ public class Server {
 
     public Server() {
         customers = new ArrayList<>();
-        countyHandler = new CountyHandler();
+    }
+
+    public void addServiceableCounty(String county, LocalTime shiftStart, LocalTime shiftEnd) {
+        if (countyHandler == null) {
+            countyHandler = new CountyHandler(county, shiftStart, shiftEnd);
+        } else {
+            countyHandler.addCounty(county, shiftStart, shiftEnd);
+        }
     }
 
     public void placeOrder(Order order) {
-        Driver assignedDriver = countyHandler.getAvailableDriverByCounty(order.getCustomer().getCounty());
+        Driver assignedDriver = countyHandler.getAvailableDriverByCounty(order.getCustomer().getCounty(), order.getOrderCreationTime());
         order.placeOrder(order, assignedDriver);
     }
 
