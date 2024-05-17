@@ -44,4 +44,9 @@ public class Driver extends User {
         if (assignedOrder == null)
             throw new IllegalStateException("No assigned order");
     }
+
+    @Override
+    public String toString() {
+        return "Driver named " + getName() + " at " + getAddress() + " in county " + getCounty();
+    }
 }

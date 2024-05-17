@@ -60,9 +60,22 @@ public class Restaurant extends User {
         System.out.println("Message to Restaurant: Order has been picked up by the driver\nOrder: " + order.toString());
     }
 
+    public List<String> getToppingNames() {
+        return toppingNames;
+    }
+
+    public List<Meal> getMeals() {
+        return meals;
+    }
+
     @Override
     public void registerToServer(Server server) {
         super.registerToServer(server);
         server.registerRestaurant(this);
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " at " + getAddress() + " has cuisine " + cuisineType;
     }
 }
