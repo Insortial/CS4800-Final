@@ -1,6 +1,5 @@
 import org.CPPFoodDelivery.meal.DietRestriction;
 import org.CPPFoodDelivery.meal.Meal;
-import org.CPPFoodDelivery.meal.macros.carb.Carb;
 import org.CPPFoodDelivery.order.*;
 import org.CPPFoodDelivery.server.Server;
 import org.CPPFoodDelivery.user.Customer;
@@ -9,7 +8,7 @@ import org.CPPFoodDelivery.user.Restaurant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 public class OrderTest {
@@ -17,7 +16,7 @@ public class OrderTest {
     public void testGetOrderStatus() {
         Server testServer = new Server();
         Customer testCustomer = new Customer("TestCustomer", "123 Main St, Los Angeles, CA", "Los Angeles", DietRestriction.PALEO);
-        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalDateTime.now(), LocalDateTime.now(), "Cuisine", new ArrayList<>(), new ArrayList<>());
+        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalTime.now(), LocalTime.now(), "Cuisine", new ArrayList<>(), new ArrayList<>());
         Driver testDriver = new Driver("TestDriver", "323 Straight St, Los Angeles, CA", "Los Angeles");
 
         testCustomer.registerToServer(testServer);

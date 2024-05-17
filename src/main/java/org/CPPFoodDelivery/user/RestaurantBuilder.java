@@ -2,7 +2,7 @@ package org.CPPFoodDelivery.user;
 
 import org.CPPFoodDelivery.meal.Meal;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +10,8 @@ public class RestaurantBuilder {
     private String name;
     private String address;
     private String county;
-    private LocalDateTime operatingHoursStart;
-    private LocalDateTime operatingHoursEnd;
+    private LocalTime operatingHoursStart;
+    private LocalTime operatingHoursEnd;
     private String cuisineType;
     private List<Meal> meals;
     private List<String> toppingNames;
@@ -36,12 +36,12 @@ public class RestaurantBuilder {
         return this;
     }
 
-    public RestaurantBuilder setOperatingHoursStart(LocalDateTime operatingHoursStart) {
+    public RestaurantBuilder setOperatingHoursStart(LocalTime operatingHoursStart) {
         this.operatingHoursStart = operatingHoursStart;
         return this;
     }
 
-    public RestaurantBuilder setOperatingHoursEnd(LocalDateTime operatingHoursEnd) {
+    public RestaurantBuilder setOperatingHoursEnd(LocalTime operatingHoursEnd) {
         this.operatingHoursEnd = operatingHoursEnd;
         return this;
     }

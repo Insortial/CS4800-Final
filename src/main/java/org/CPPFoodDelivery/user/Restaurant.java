@@ -4,23 +4,23 @@ import org.CPPFoodDelivery.meal.Meal;
 import org.CPPFoodDelivery.server.Server;
 import org.CPPFoodDelivery.order.Order;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class Restaurant extends User {
-    private LocalDateTime operatingHoursStart;
-    private LocalDateTime operatingHoursEnd;
+    private LocalTime operatingHoursStart;
+    private LocalTime operatingHoursEnd;
     private String cuisineType;
     private List<String> toppingNames;
     private List<Meal> meals;
     private Queue<Order> orders;
     private List<Order> ordersReadyForPickup;
 
-    public Restaurant(String name, String address, String county, LocalDateTime operatingHoursStart,
-                      LocalDateTime operatingHoursEnd, String cuisineType, List<Meal> meals, List<String> toppingNames) {
+    public Restaurant(String name, String address, String county, LocalTime operatingHoursStart,
+                      LocalTime operatingHoursEnd, String cuisineType, List<Meal> meals, List<String> toppingNames) {
         super(name, address, county);
         this.operatingHoursStart = operatingHoursStart;
         this.operatingHoursEnd = operatingHoursEnd;
