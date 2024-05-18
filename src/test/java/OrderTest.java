@@ -1,7 +1,6 @@
 import org.CPPFoodDelivery.meal.DietRestriction;
 import org.CPPFoodDelivery.meal.Meal;
 import org.CPPFoodDelivery.meal.MealFactory;
-import org.CPPFoodDelivery.meal.macros.carb.Carb;
 import org.CPPFoodDelivery.order.*;
 import org.CPPFoodDelivery.server.Server;
 import org.CPPFoodDelivery.user.Customer;
@@ -10,22 +9,24 @@ import org.CPPFoodDelivery.user.Restaurant;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 public class OrderTest {
     @Test
     public void testGetOrderStatus() {
         Server testServer = new Server();
+        testServer.addServiceableCounty("Los Angeles", LocalTime.of(0, 0), LocalTime.of(23, 59));
+
         Customer testCustomer = new Customer("TestCustomer", "123 Main St, Los Angeles, CA", "Los Angeles", DietRestriction.PALEO);
-        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalDateTime.now(), LocalDateTime.now(), "Cuisine");
+        Restaurant testRestaurant = new Restaurant("Name", "Address", "Los Angeles", LocalTime.of(0, 0), LocalTime.of(23, 59), "Cuisine", new ArrayList<>(), new ArrayList<>());
         Driver testDriver = new Driver("TestDriver", "323 Straight St, Los Angeles, CA", "Los Angeles");
 
         testCustomer.registerToServer(testServer);
         testRestaurant.registerToServer(testServer);
         testDriver.registerToServer(testServer);
 
-        Order testOrder = new Order(testRestaurant, testCustomer, List.of());
+        Order testOrder = new Order(testRestaurant, testCustomer, List.of(), LocalTime.of(13,0));
 
         testCustomer.placeOrder(testOrder);
         OrderState orderState1 = testOrder.getState();
@@ -44,20 +45,10 @@ public class OrderTest {
         OrderState orderState4 = testOrder.getState();
 
 
-        Assertions.assertTrue(orderState1 instanceof OrderPlacedState);
-        Assertions.assertTrue(orderState2 instanceof OrderMadeState);
-        Assertions.assertTrue(orderState3 instanceof PickedUpState);
-        Assertions.assertTrue(orderState4 instanceof DeliveredState);
+        Assertions.assertInstanceOf(OrderPlacedState.class, orderState1);
+        Assertions.assertInstanceOf(OrderMadeState.class, orderState2);
+        Assertions.assertInstanceOf(PickedUpState.class, orderState3);
+        Assertions.assertInstanceOf(DeliveredState.class, orderState4);
     }
-
-    @Test
-    public void testMealAndToppings() {
-        MealFactory.createMeal("Bread", "Butter", "Sausage");
-        List<Meal> testListOfMeals =  new ArrayList<>();
-        Set<DietRestriction> dietRestrictions = new HashSet<>();
-        dietRestrictions.add(DietRestriction.NO_RESTRICTION);
-
-    }
-
 
 }
