@@ -69,7 +69,7 @@ public class Main {
                 .build();
         tacoBell.registerToServer(server);
 
-        Meal meal3 = MealFactory.createMeal("Chow Mein", "Seasame Oil", "Chicken");
+        Meal meal3 = MealFactory.createMeal("Chow Mein", "Sesame Oil", "Chicken");
         Restaurant pandaExpress = new RestaurantBuilder()
                 .setName("Panda Express")
                 .setCuisineType("Chinese")
@@ -82,7 +82,7 @@ public class Main {
                 .build();
         pandaExpress.registerToServer(server);
 
-        Meal meal4 = MealFactory.createMeal("Bun", "Cheese", "Fish");
+        Meal meal4 = MealFactory.createMeal("Bun", "Butter", "Fish");
         Restaurant mcDonalds = new RestaurantBuilder()
                 .setName("McDonalds")
                 .setCuisineType("American")
@@ -145,7 +145,7 @@ public class Main {
         System.out.println("\nOrder 4:");
         ArrayList<Meal> customer2Meals = new ArrayList<>();
         customer2Meals.add(meal3);
-        customer2.placeOrder(new Order(pandaExpress, customer2, customer2Meals, LocalTime.of(13,0)));
+        customer2.placeOrder(new Order(pandaExpress, customer2, customer2Meals, LocalTime.of(17,0)));
         pandaExpress.makeOrder();
         driver4.pickupOrder();
         driver4.deliverOrder();
@@ -153,7 +153,7 @@ public class Main {
         System.out.println("\nOrder 5:");
         ArrayList<Meal> customer5Meals = new ArrayList<>();
         customer5Meals.add(meal3);
-        customer5.placeOrder(new Order(pandaExpress, customer5, customer5Meals, LocalTime.of(13,0)));
+        customer5.placeOrder(new Order(pandaExpress, customer5, customer5Meals, LocalTime.of(16,0)));
         pandaExpress.makeOrder();
         driver4.pickupOrder();
         driver4.deliverOrder();
@@ -166,29 +166,29 @@ public class Main {
         driver7.pickupOrder();
         driver7.deliverOrder();
 
-//        System.out.println("\nOrder 7:");
-//        ArrayList<Meal> customer3Meals = new ArrayList<>();
-//        customer3Meals.add(meal4);
-//        customer3.placeOrder(new Order(mcDonalds, customer3, customer3Meals, LocalTime.of(5,0)));
-//        mcDonalds.makeOrder();
-//        driver7.pickupOrder();
-//        driver7.deliverOrder();
+        System.out.println("\nOrder 7:");
+        ArrayList<Meal> customer3Meals = new ArrayList<>();
+        customer3Meals.add(meal4);
+        customer3.placeOrder(new Order(mcDonalds, customer3, customer3Meals, LocalTime.of(5,0)));
+        mcDonalds.makeOrder();
+        driver7.pickupOrder();
+        driver7.deliverOrder();
 
         System.out.println("\nOrder 8:");
         ArrayList<Meal> customer8Meals = new ArrayList<>();
         customer8Meals.add(meal3);
-        customer8.placeOrder(new Order(pandaExpress, customer8, customer8Meals, LocalTime.of(13,0)));
+        customer8.placeOrder(new Order(pandaExpress, customer8, customer8Meals, LocalTime.of(18,0)));
         pandaExpress.makeOrder();
         driver4.pickupOrder();
         driver4.deliverOrder();
 
-//        System.out.println("\nOrder 9:");
-//        ArrayList<Meal> customer9Meals = new ArrayList<>();
-//        customer9Meals.add(meal4);
-//        customer9.placeOrder(new Order(mcDonalds, customer9, customer9Meals, LocalTime.of(5,0)));
-//        mcDonalds.makeOrder();
-//        driver7.pickupOrder();
-//        driver7.deliverOrder();
+        System.out.println("\nOrder 9:");
+        ArrayList<Meal> customer9Meals = new ArrayList<>();
+        customer9Meals.add(meal4);
+        customer9.placeOrder(new Order(mcDonalds, customer9, customer9Meals, LocalTime.of(5,0)));
+        mcDonalds.makeOrder();
+        driver7.pickupOrder();
+        driver7.deliverOrder();
 
         System.out.println("\nOrder 10:");
         ArrayList<Meal> customer10Meals = new ArrayList<>();

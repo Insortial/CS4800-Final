@@ -63,7 +63,8 @@ public class ServerAndUserTest {
     @Test
     public void customerCanPlaceOrder() {
         customer.placeOrder(new Order(restaurant, customer, new ArrayList<>(), LocalTime.of(13,0)));
-        assertEquals("Message to Restaurant: Order has been placed by the customer\n" +
+        assertEquals("Driver Name has been assigned\n" +
+                "Message to Restaurant: Order has been placed by the customer\n" +
                 "Order: Order at Name for 0 meals", out.toString().trim());
     }
 
@@ -71,7 +72,7 @@ public class ServerAndUserTest {
     public void restaurantCanMakeOrder() {
         customer.placeOrder(new Order(restaurant, customer, new ArrayList<>(), LocalTime.of(13,0)));
         restaurant.makeOrder();
-        assertEquals("County" + "\nDriver Name has been assigned" + "\n13:00" +
+        assertEquals("Driver Name has been assigned\n" +
                 "Message to Restaurant: Order has been placed by the customer\n" +
                 "Order: Order at Name for 0 meals\n" +
                 "Message to Customer: Order has been made by the restaurant\n" +
@@ -85,7 +86,8 @@ public class ServerAndUserTest {
         customer.placeOrder(new Order(restaurant, customer, new ArrayList<>(), LocalTime.of(13,0)));
         restaurant.makeOrder();
         driver.pickupOrder();
-        assertEquals("Message to Restaurant: Order has been placed by the customer\n" +
+        assertEquals("Driver Name has been assigned\n" +
+                "Message to Restaurant: Order has been placed by the customer\n" +
                 "Order: Order at Name for 0 meals\n" +
                 "Message to Customer: Order has been made by the restaurant\n" +
                 "Order: Order at Name for 0 meals\n" +
@@ -103,7 +105,8 @@ public class ServerAndUserTest {
         restaurant.makeOrder();
         driver.pickupOrder();
         driver.deliverOrder();
-        assertEquals("Message to Restaurant: Order has been placed by the customer\n" +
+        assertEquals("Driver Name has been assigned\n" +
+                "Message to Restaurant: Order has been placed by the customer\n" +
                 "Order: Order at Name for 0 meals\n" +
                 "Message to Customer: Order has been made by the restaurant\n" +
                 "Order: Order at Name for 0 meals\n" +

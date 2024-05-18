@@ -10,7 +10,11 @@ public class CarbFactory {
             new Bread(),
             new Cheese(),
             new Lentils(),
-            new Pistachio()
+            new Pistachio(),
+            new Pasta(),
+            new Tortilla(),
+            new ChowMein(),
+            new Bun()
     );
 
     public static Carb createRandomCarb() {
@@ -25,7 +29,7 @@ public class CarbFactory {
             if (carb.getMacroName().equals(carbName))
                 return carb;
         }
-        return null;
+        throw new IllegalArgumentException(carbName + " is not a valid Carb");
     }
 
     public static Carb createCarbByDietRestriction(DietRestriction dietRestriction) {
@@ -33,6 +37,6 @@ public class CarbFactory {
             if (carb.isDietAllowed(dietRestriction))
                 return carb;
         }
-        return null;
+        throw new IllegalArgumentException("There is no Carb for this diet");
     }
 }

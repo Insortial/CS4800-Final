@@ -10,7 +10,9 @@ public class FatFactory {
             new Avocado(),
             new Peanuts(),
             new SourCream(),
-            new Tuna()
+            new Tuna(),
+            new Butter(),
+            new SesameOil()
     );
 
     public static Fat createRandomFat() {
@@ -20,12 +22,12 @@ public class FatFactory {
         return FATS.get(randomIndex);
     }
 
-    public static Fat createFatByName(String carbName) {
+    public static Fat createFatByName(String fatName) {
         for (Fat fat : FATS) {
-            if (fat.getMacroName().equals(carbName))
+            if (fat.getMacroName().equals(fatName))
                 return fat;
         }
-        return null;
+        throw new IllegalArgumentException(fatName + " is not a valid Fat");
     }
 
     public static Fat createFatByDietRestriction(DietRestriction dietRestriction) {
@@ -33,6 +35,6 @@ public class FatFactory {
             if (fat.isDietAllowed(dietRestriction))
                 return fat;
         }
-        return null;
+        throw new IllegalArgumentException("There is no fat for this diet");
     }
 }

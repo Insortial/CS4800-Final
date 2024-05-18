@@ -59,9 +59,9 @@ public class CountyHandler {
     public Driver getAvailableDriverByCounty(String county, LocalTime currentTime) {
         if (isNotSameCounty(county)) {
             checkHasNextHandler();
-            return isInShift(currentTime) ? nextHandler.getAvailableDriverByCounty(county, currentTime) : null;
+            return nextHandler.getAvailableDriverByCounty(county, currentTime);
         }
-        return findNextAvailableDriver();
+        return isInShift(currentTime) ? findNextAvailableDriver() : null;
     }
 
     private boolean isInShift(LocalTime currentTime) {
@@ -77,11 +77,6 @@ public class CountyHandler {
     }
 
     private boolean isNotSameCounty(String county) {
-        if (this.county == null) {
-            this.county = county;
-            return false;
-        }
-
         return !this.county.equals(county);
     }
 

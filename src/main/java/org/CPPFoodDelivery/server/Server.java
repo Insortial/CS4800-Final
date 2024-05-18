@@ -26,8 +26,12 @@ public class Server {
     }
 
     public void placeOrder(Order order) {
-        System.out.println(order.getCustomer().getCounty());
         Driver assignedDriver = countyHandler.getAvailableDriverByCounty(order.getCustomer().getCounty(), order.getOrderCreationTime());
+
+        if (assignedDriver == null) {
+            throw new IllegalStateException("There are no available drivers in this county");
+        }
+
         System.out.println("Driver " + assignedDriver.getName() + " has been assigned");
         order.placeOrder(order, assignedDriver);
     }

@@ -10,7 +10,8 @@ public class ProteinFactory {
             new Beef(),
             new Chicken(),
             new Fish(),
-            new Tofu()
+            new Tofu(),
+            new Meatball()
     );
 
     public static Protein createRandomProtein() {
@@ -20,12 +21,12 @@ public class ProteinFactory {
         return PROTEINS.get(randomIndex);
     }
 
-    public static Protein createProteinByName(String carbName) {
+    public static Protein createProteinByName(String proteinName) {
         for (Protein protein : PROTEINS) {
-            if (protein.getMacroName().equals(carbName))
+            if (protein.getMacroName().equals(proteinName))
                 return protein;
         }
-        return null;
+        throw new IllegalArgumentException(proteinName + " is not a valid Protein");
     }
 
     public static Protein createProteinByDietRestriction(DietRestriction dietRestriction) {
@@ -33,6 +34,6 @@ public class ProteinFactory {
             if (protein.isDietAllowed(dietRestriction))
                 return protein;
         }
-        return null;
+        throw new IllegalArgumentException("There is no protein for this diet");
     }
 }
