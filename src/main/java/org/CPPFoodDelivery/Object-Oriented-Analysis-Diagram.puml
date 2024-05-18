@@ -1,0 +1,88 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+User <-- Profile
+User <-- Content
+
+Profile --> Content
+
+Content <-- Captions
+
+ProfilePreferences --> Content
+ProfilePreferences --> User
+
+ContentDisplay --> Content
+ContentDisplay --> Captions
+ContentDisplay --o Server
+ContentDisplay --> Quality
+
+Quality --> Content
+
+Server o-- Content
+Server o-- User
+
+class User {
+    String profile
+    switchProfile(profile: String): void
+    createProfile(profile: String): void
+
+}
+
+class Profile {
+    profilePreferences(preferences: String): String
+    getExplore(): String
+    getYouMightLike(): String
+    getGenre(): String
+    getMovies(): String
+    getShows(): String
+    getOriginals(): String
+}
+
+class Content {
+    String content
+
+    setContent(content: String): void
+    getActors(): String
+    getGenre(): String
+    getDirector(): String
+    getContent(): String
+}
+
+class ProfilePreferences {
+    String userPreference
+    matchUserPreference(userPreference: String): String
+}
+
+class ContentDisplay {
+    int contentQuality
+    bool toggleCaptions
+    setContentQuality(contentQuality: int): void
+    getContentQuality(): int
+    setCaptions(toggleCaptions: bool): void
+    getCaptions(): bool
+    getTime(): String
+    displayContent(): void
+}
+
+class Captions {
+    String language
+    setCaptionsLanguage(language: String): void
+    showCaptions(language: String): bool
+}
+
+class Quality {
+    int quality
+    changeQuality(quality: int): void
+}
+
+class Server {
+    String contentName
+    setContentName(contentName: String): void
+    getContentName(): String
+    retrieveContent(contentName: String): String
+    getAllContent(contentName: String): List<String>
+    checkUserCredentials(profile: String)
+    signUp(profile: String): void
+}
+
+@endumlD
